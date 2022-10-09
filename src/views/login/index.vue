@@ -75,6 +75,7 @@
 <script>
 import SocialSignin from './components/SocialSignin'
 import { validateUname } from '@/utils/validate'
+
 export default {
   name: 'Login',
   components: { SocialSignin },
@@ -113,7 +114,6 @@ export default {
   watch: {
     $route: {
       handler: function (newRoute) {
-        console.log(newRoute)
         const query = newRoute.query
         if (query) {
           this.redirect = query.redirect
