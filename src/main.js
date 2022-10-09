@@ -17,6 +17,7 @@ import store from './store'
 
 import '../mock/'
 import './icons/'
+import './permission'
 
 // import '../mock/'
 // if (process.env.NODE_ENV === 'development') {
