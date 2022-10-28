@@ -6,7 +6,10 @@
         :background-color="variables.menuBg"
         :text-color="variables.menuText"
         :active-text-color="variables.menuActiveText"
+        :collapse="isCollapse"
+        :collapse-transition="false"
       >
+        <!-- 解决菜单折叠时卡顿：设置 :collapse-transition="false",并在 css 样式中添加 transition -->
         <sidebar-item
           v-for="route in permission_routes"
           :key="route.path"
@@ -26,8 +29,9 @@ import SidebarItem from './SidebarItem.vue'
 export default {
   components: { SidebarItem },
   name: 'Sidebar',
+
   computed: {
-    ...mapGetters(['permission_routes']),
+    ...mapGetters(['permission_routes', 'sidebar']),
     variables() {
       return variables
     },
@@ -40,9 +44,21 @@ export default {
         return meta.activeMenu
       }
       return path
+    },
+    isCollapse() {
+      return !this.sidebar.opened
+    }
+  },
+  methods: {
+    openMenu() {
+      this.isCollapse = !this.isCollapse
     }
   }
 }
 </script>
 
-<style></style>
+<style>
+.el-menu--collapse {
+  width: 64px;
+}
+</style>

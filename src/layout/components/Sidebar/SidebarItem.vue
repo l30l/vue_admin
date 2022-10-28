@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!routeItem.hidden" class="sidebar-item">
+  <div v-if="!routeItem.hidden">
     <!-- 将路由渲染成 Sidebar 中单独一项需满足以下三个条件： -->
     <!-- 1. 该路由没有子路由，或只有一条子路由 -->
     <!-- 2. 只有一条子路由 onlyOneChild，且该路由没有设置 alwaysShow，则只渲染子路由 -->
@@ -12,7 +12,10 @@
       "
     >
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
-        <el-menu-item :index="resolvePath(onlyOneChild.path)">
+        <el-menu-item
+          :index="resolvePath(onlyOneChild.path)"
+          :class="{ 'submenu-title-noDropdown': !isNest }"
+        >
           <item :icon="onlyOneChild.meta.icon" :title="onlyOneChild.meta.title"></item>
         </el-menu-item>
       </app-link>
@@ -27,10 +30,12 @@
         ></item>
       </template>
       <sidebar-item
+        class="nest-menu"
         v-for="child in routeItem.children"
         :key="child.path"
         :route-item="child"
         :base-path="resolvePath(child.path)"
+        :is-nest="true"
       ></sidebar-item>
     </el-submenu>
   </div>
@@ -54,6 +59,10 @@ export default {
     basePath: {
       type: String,
       default: ''
+    },
+    isNest: {
+      type: Boolean,
+      default: false
     }
   },
   data() {

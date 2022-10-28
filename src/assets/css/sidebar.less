@@ -1,13 +1,47 @@
 #app {
-	
+
+	.main-container {
+		position: relative;
+		min-height: 100%;
+		margin-left: @sideBarWidth;
+    transition: margin-left .28s;
+	}
+
 	.sidebar-container {
+		transition: width 0.25s;
 		position: fixed;
 		top: 0;
 		bottom: 0;
 		left: 0;
+		font-size: 0px; //会影响菜单中包裹 el-menu-item 的 div 的高度
 		z-index: 999;
 		overflow: hidden;
-		width: @sideBarWidth !important;
+		width: @sideBarWidth ;
+		height: 100%;
+	}
+
+	// 重写 element-ui 样式
+	.scrollbar-wrapper {
+		overflow-x: hidden !important;
+	}
+
+	.el-scrollbar {
+		height: 100%;
+	}
+
+	.el-scrollbar__bar.is-vertical {
+		right: 0px;
+	}
+
+	// 不显示横向滚动条 
+	.is-horizontal {
+		display: none; 
+	}
+
+	a {
+		display: inline-block;
+		width: 100%;
+		overflow: hidden;
 	}
 
 	.svg-icon {
@@ -19,4 +53,57 @@
 		height: 100%;
 		width: 100% !important;
 	}
+
+	.is-active>.el-submenu__title {
+		color: @subMenuActiveText !important;
+	}
+
+  .el-submenu .el-menu-item  {
+		&:hover {
+			background-color: @subMenuHover !important;
+		}
+		min-width: @sideBarWidth !important;
+		background-color: @subMenuBg !important;
+	}
+
+}
+
+.el-menu--collapse .el-menu .el-submenu {
+	min-width: @sideBarWidth !important;
+}
+
+.el-menu--collapse {
+	.el-submenu__title span,
+	.el-submenu__title .el-submenu__icon-arrow {
+		display: none;
+	}
+}
+
+.hideSidebar {
+	.sidebar-container {
+		width: 54px !important;
+	}
+	.main-container {
+		margin-left: 54px !important;
+	}
+}
+
+// sidebar 折叠
+.el-menu--vertical {
+	&>.el-menu {
+		.svg-icon {
+			margin-right: 16px;
+		}
+		.sub-el-icon {
+			margin-right: 12px;
+			margin-left: -2px;
+		}
+	}
+	
+	.nest-menu .el-submenu>.el-submenu__title,
+  .el-menu-item {
+    &:hover {
+      background-color: @subMenuHover !important;
+    }
+  }
 }

@@ -53,6 +53,9 @@ module.exports = {
     resolve: {
       alias: {
         '@': resolve('src')
+      },
+      fallback: {
+        path: require.resolve('path-browserify')
       }
     }
   },
