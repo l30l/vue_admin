@@ -9,7 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 // import locale from 'element-ui/lib/locale/lang/en'
 import enLang from 'element-ui/lib/locale/lang/en'
 
-import '@/assets/css/index.css'
+import '@/assets/css/index.less'
 
 import App from './App.vue'
 import router from './router'
