@@ -5,7 +5,7 @@
       @toggleClick="toggleSidebar"
       :is-active="sidebar.opened"
     ></hamburger>
-    <breadcrumb></breadcrumb>
+    <breadcrumb class="breadcrumb-container"></breadcrumb>
   </div>
 </template>
 
@@ -39,5 +39,9 @@ export default {
   cursor: pointer;
   transition: background 0.3s;
   -webkit-tap-highlight-color: transparent;
+}
+
+.breadcrumb-container {
+  float: left;
 }
 </style>

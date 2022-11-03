@@ -41,9 +41,6 @@ export default {
       }
     }
   },
-  mounted() {
-    console.log(this.device)
-  },
   methods: {
     handleClickOutside() {
       this.$store.dispatch('closeSidebar', { withoutAnimation: false })
