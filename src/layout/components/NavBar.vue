@@ -9,6 +9,7 @@
 
     <div class="right-menu">
       <search class="right-menu-item"></search>
+      <screenfull class="right-menu-item hover-effect"></screenfull>
     </div>
   </div>
 </template>
@@ -18,9 +19,10 @@ import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 import Search from '@/components/HeaderSearch'
+import Screenfull from '@/components/Screenfull'
 
 export default {
-  components: { Breadcrumb, Hamburger, Search },
+  components: { Breadcrumb, Hamburger, Search, Screenfull },
   name: 'NavBar',
   computed: {
     ...mapGetters(['sidebar'])
@@ -62,6 +64,15 @@ export default {
     font-size: 18px;
     color: #5a5e66;
     vertical-align: text-bottom;
+
+    &.hover-effect {
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.025);
+      }
+    }
   }
 }
 </style>
