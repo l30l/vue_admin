@@ -13,6 +13,23 @@ VueRouter.prototype.push = function (location) {
 
 export const constantRoutes = [
   {
+    path: '/redirect/:path*', // 将匹配以 `/redirect/` 开头的所有内容，并将其放在 `$route.params.path` 下
+    component: () => import('@/views/redirect/index.vue'),
+    hidden: true
+  },
+  // {
+  //   path: '/redirect',
+  //   component: Layout,
+  //   name: 'redirect',
+  //   hidden: true,
+  //   children: [
+  //     {
+  //       path: '/redirect/:path*',
+  //       component: () => import('@/views/redirect/index')
+  //     }
+  //   ]
+  // },
+  {
     path: '/login',
     component: () => import('@/views/login/index.vue'),
     hidden: true // 该路由不会在侧边栏显示

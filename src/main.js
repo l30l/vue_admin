@@ -27,7 +27,7 @@ import './permission'
 
 // Vue.use(ElementUI, { locale })
 Vue.use(ElementUI, {
-  size: Cookies.get('size') || 'medium',
+  size: Cookies.get('size') || 'medium', // 设置默认和刷新浏览器设置为你指定的大小
   locale: enLang
 })
 

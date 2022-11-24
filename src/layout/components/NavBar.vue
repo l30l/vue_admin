@@ -10,6 +10,9 @@
     <div class="right-menu">
       <search class="right-menu-item"></search>
       <screenfull class="right-menu-item hover-effect"></screenfull>
+      <el-tooltip content="Global Size" placement="bottom">
+        <size-select class="right-menu-item hover-effect"></size-select>
+      </el-tooltip>
     </div>
   </div>
 </template>
@@ -20,9 +23,10 @@ import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 import Search from '@/components/HeaderSearch'
 import Screenfull from '@/components/Screenfull'
+import SizeSelect from '@/components/SizeSelect'
 
 export default {
-  components: { Breadcrumb, Hamburger, Search, Screenfull },
+  components: { Breadcrumb, Hamburger, Search, Screenfull, SizeSelect },
   name: 'NavBar',
   computed: {
     ...mapGetters(['sidebar'])
