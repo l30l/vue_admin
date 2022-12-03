@@ -64,3 +64,10 @@ Mock.mock(
     }
   }
 )
+
+Mock.mock(`${process.env.VUE_APP_BASE_API}/vue-element-admin/user/logout`, 'post', function () {
+  return {
+    code: 20000,
+    data: 'log out success'
+  }
+})
