@@ -8,6 +8,7 @@
     <sidebar class="sidebar-container"></sidebar>
     <div class="main-container">
       <nav-bar></nav-bar>
+      <tags-view></tags-view>
     </div>
   </div>
 </template>
@@ -19,12 +20,14 @@ import ResizeMixin from './mixin/ResizeHandler'
 
 import Sidebar from './components/Sidebar/index.vue'
 import NavBar from './components/NavBar.vue'
+import TagsView from './components/TagsView/index.vue'
 
 export default {
   name: 'Layout',
   components: {
     Sidebar,
-    NavBar
+    NavBar,
+    TagsView
   },
   mixins: [ResizeMixin],
   computed: {
